@@ -1,0 +1,14 @@
+groups:
+  - name: owners
+    members:
+      - user: mayllonbaumer@gmail.com
+    roles:
+      - roles/owner
+
+  - name: developers
+    members:
+      - user: magnosantosreb@gmail.com
+      - user: rogerioferreiraeu@gmail.com
+    roles:
+      - roles/viewer
+      - roles/storage.objectAdmin

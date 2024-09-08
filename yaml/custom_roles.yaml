@@ -1,0 +1,16 @@
+roles:
+  - name: "CustomRole1"
+    title: "Custom Role 1"
+    description: "Custom role with specific permissions"
+    permissions:
+      - "compute.instances.create"
+      - "compute.instances.delete"
+      - "compute.instances.list"
+
+  - name: "CustomRole2"
+    title: "Custom Role 2"
+    description: "Another custom role with different permissions"
+    permissions:
+      - "storage.buckets.create"
+      - "storage.objects.delete"
+      - "storage.objects.list"
