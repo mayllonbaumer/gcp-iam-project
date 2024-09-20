@@ -1,0 +1,16 @@
+users:
+  - email: magnosantosreb@gmail.com
+    type: user
+    roles:
+      - roles/viewer
+      - roles/storage.objectAdmin
+  - email: mateus1barros5@gmail.com
+    type: user
+    roles:
+      - roles/viewer
+      - roles/storage.objectAdmin
+  - email: rogerioferreiraeu@gmail.com
+    type: user
+    roles:
+      - roles/viewer
+      - roles/storage.objectAdmin

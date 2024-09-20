@@ -1,26 +1,44 @@
-# Terraform GCP Identity and Groups Management
+# 🚀 Terraform GCP IAM Management
 
-## Introduction
+This Terraform project manages **Google Cloud IAM roles** for users and service accounts across multiple environments (dev, test, and prd). It automates the assignment of roles and permissions based on configurations provided in a YAML file.
 
-This project uses **Terraform** to automate the management of **Google Cloud Identity** groups, users, permissions, and custom roles. It assumes that **Cloud Identity** has already been set up in your GCP environment, allowing you to create and manage groups, assign users, and apply project-level permissions.
+## 📋 Project Structure
 
-## Features
-- Create Cloud Identity groups.
-- Manage group memberships.
-- Assign IAM roles to groups.
-- Create and manage custom roles.
-- Automatically provision via CI/CD pipeline using GitHub Actions.
+The project relies on a `users.yaml` file to define the roles, users, and service accounts. The Terraform code dynamically creates the necessary IAM bindings for each environment.
 
----
+### 🛠️ Prerequisites
 
-## How to Use
+Before running Terraform scripts or deploying via GitHub Actions, ensure the following are configured:
 
-### Prerequisites
+1. **Service Account Key (`SA_KEY`)**:
+    - A Google Cloud service account key must be stored as a GitHub secret for each environment (`dev`, `test`, `prd`). This key should have permissions to manage IAM roles.
+  
+2. **Project ID (`PROJECT_ID`)**:
+    - Set an environment variable `PROJECT_ID` for each environment. This identifies the GCP project where roles will be managed.
 
-Before using this Terraform module, you need to have the following:
+### 🔑 Secret and Environment Configuration
 
-1. A GCP project where **Cloud Identity** or **Google Workspace** is set up.
-2. A **service account** with the following roles:
-   - `Cloud Identity Groups Admin` (`roles/cloudidentity.groups.admin`)
-   - `Project Editor` (`roles/editor`)
-3. **Cloud Identity API** must be enabled in the project.
+For each environment (Development, Testing, Production), configure the following:
+
+- **SA_KEY**: Stored as a GitHub secret under each environment.
+- **PROJECT_ID**: Set as an environment variable for each environment.
+
+These settings are automatically picked up by the GitHub Actions workflow to deploy Terraform changes.
+
+### 📝 Example `users.yaml`
+
+The role assignments are defined in the `settings/users.yaml` file. This file contains a list of users or service accounts, their types, and the roles assigned to them.
+
+The `users.yaml` follows this structure:
+
+```yaml
+users:
+  - email: yourmail@example.com
+    type: user
+    roles:
+      - roles/viewer
+      - roles/storage.objectAdmin
+  - email: anotheremail@gmail.com
+    type: user
+    roles:
+      - roles/viewer
