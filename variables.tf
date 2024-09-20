@@ -8,8 +8,3 @@ variable "region" {
   type        = string
   default     = "eurepo-west1"
 }
-
-variable "credentials_file" {
-  description = "Caminho para o arquivo de credenciais da service account"
-  type        = string
-}
