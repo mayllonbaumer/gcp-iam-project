@@ -9,6 +9,7 @@ groups:
     members:
       - user: magnosantosreb@gmail.com
       - user: rogerioferreiraeu@gmail.com
+      - user: mateus1barros5@gmail.com
     roles:
       - roles/viewer
       - roles/storage.objectAdmin
