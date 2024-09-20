@@ -14,7 +14,7 @@ module "custom_roles" {
   for_each = { for role in local.custom_roles.roles : group.name => role }
 
   source = "./modules/custom_roles"
-
+  project_id = var.project_id
   name          = each.value.name
   title         = each.value.title
   description   = each.value.description
